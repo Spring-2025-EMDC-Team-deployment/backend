@@ -1,0 +1,1187 @@
+{
+	"info": {
+		"_postman_id": "cfe75a26-d182-4f01-be4d-c01748c175f1",
+		"name": "EMDC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29766549"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"example@judge.com\",\"password\":\"password\"}"
+						},
+						"url": {
+							"raw": "http://localhost:7004/api/signup/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"api",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"example@judge.com\",\"password\":\"password\"}"
+						},
+						"url": {
+							"raw": "http://localhost:7004/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 157d351101c64530e46651e24dd092aa9436b8ca",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:7004/testToken/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"testToken",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Judges",
+			"item": [
+				{
+					"name": "Create Judge",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 86bedb72160f13e1cc0ac0a622071ec5fb301a8f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"judge2@judge.com\", \"password\":\"password1\", \"first_name\":\"examplefirstname\", \"last_name\":\"examplelastname\", \"phone_number\":\"1111111111\",  \"presentation\":\"false\", \"mdo\": \"false\", \"journal\": \"false\", \"penalties\": \"true\", \"contestid\":1,\"clusterid\":2}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/api/judge/create/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"api",
+								"judge",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Judge",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 9ec8a3a2560611cc5dcddf9a4163d80d01fda9b4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"{{judge_id}}\",\"first_name\":\"examplefirst\", \"last_name\":\"examplelast\", \"contestid\":\"{{contest_id}}\", \"presentation\":\"False\", \"mdo\": \"True\", \"journal\": \"False\", \"penalties\": \"True\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/judge/edit/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"judge",
+								"edit",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organizers",
+			"item": [
+				{
+					"name": "DQ Team Organizer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token cbee34e8440d9852773c474d33aa2eb43f848bd1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"teamid\":3}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/api/organizer/disqualifyTeam/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"api",
+								"organizer",
+								"disqualifyTeam",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teams",
+			"item": [
+				{
+					"name": "Get Team",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7004/team/get/{{team_id}}/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"team",
+								"get",
+								"{{team_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Team",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 86bedb72160f13e1cc0ac0a622071ec5fb301a8f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"team_name\":\"meme machine03\", \r\n\"username\":\"bodie@judge.com\",\r\n\"password\":\"password1\",\r\n\"first_name\":\"testcoachfirstname\",\r\n\"last_name\":\"testcoachlastname\",\r\n\"journal_score\":0, \r\n\"presentation_score\":0, \r\n\"machinedesign_score\":0, \r\n\"penalties_score\":0,\r\n\"total_score\": 0,\r\n\"contestid\":1,\r\n\"clusterid\":2\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/api/team/create/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"api",
+								"team",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Team",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 608261021dff6f9372fb835109d472ba2e2e3db6",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"{{team_id}}\", \"team_name\":\" machine warriors\", \"journal_score\":70, \r\n\"presentation_score\":80, \"machinedesign_score\":32, \"score_penalties\":0, \"judge_cluster\":1}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/team/edit/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"team",
+								"edit",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Team",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 608261021dff6f9372fb835109d472ba2e2e3db6",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"{{team_id}}\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/team/delete/{{team_id}}/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"team",
+								"delete",
+								"{{team_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Teams By Cluster Rank",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 86bedb72160f13e1cc0ac0a622071ec5fb301a8f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"clusterid\":2}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/api/mapping/clusterToTeam/getTeamsByClusterRank/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"api",
+								"mapping",
+								"clusterToTeam",
+								"getTeamsByClusterRank",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clusters",
+			"item": [
+				{
+					"name": "Get Cluster",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 9ec8a3a2560611cc5dcddf9a4163d80d01fda9b4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:7004/cluster/get/{{cluster_id}}/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"cluster",
+								"get",
+								"{{cluster_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Clusters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 9ec8a3a2560611cc5dcddf9a4163d80d01fda9b4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:7004/cluster/getAll/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"cluster",
+								"getAll",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cluster",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 86bedb72160f13e1cc0ac0a622071ec5fb301a8f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"cluster_name\":\"cluster example\",\"contestid\":1}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/api/cluster/create/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"api",
+								"cluster",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Cluster",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 9ec8a3a2560611cc5dcddf9a4163d80d01fda9b4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": \"{{cluster_id}}\", \"cluster_name\": \"name\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/cluster/edit/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"cluster",
+								"edit",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cluster",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 9ec8a3a2560611cc5dcddf9a4163d80d01fda9b4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"{{cluster_id}}\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/cluster/delete/{{cluster_id}}/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"cluster",
+								"delete",
+								"{{cluster_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contests",
+			"item": [
+				{
+					"name": "Get Contest",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 9ec8a3a2560611cc5dcddf9a4163d80d01fda9b4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:7004/contest/get/{{contest_id}}/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"contest",
+								"get",
+								"{{contest_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Contests",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 9ec8a3a2560611cc5dcddf9a4163d80d01fda9b4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:7004/contest/getAll/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"contest",
+								"getAll",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Contest",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 86bedb72160f13e1cc0ac0a622071ec5fb301a8f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"contest name\",\"date\":\"2025-1-1\", \"is_open\":\"False\", \"is_tabulated\":\"False\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/api/contest/create/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"api",
+								"contest",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Contest",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 9ec8a3a2560611cc5dcddf9a4163d80d01fda9b4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": \"{{contest_id}}\", \"contest_name\":\"contest name 2\", \"is_open\":\"False\", \"is_tabulated\":\"False\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/contest/edit/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"contest",
+								"edit",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Contest",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 9ec8a3a2560611cc5dcddf9a4163d80d01fda9b4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"{{contest_id}}\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/contest/delete/{{contest_id}}/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"contest",
+								"delete",
+								"{{contest_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scoresheets",
+			"item": [
+				{
+					"name": "Get Master Scoresheet Details",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 86bedb72160f13e1cc0ac0a622071ec5fb301a8f",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:7004/api/scoreSheet/getMasterDetails/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"api",
+								"scoreSheet",
+								"getMasterDetails",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Master Scoresheet Details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": " application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Token 86bedb72160f13e1cc0ac0a622071ec5fb301a8f",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"contestid\":1}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:7004/api/scoreSheet/getMasterDetails/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7004",
+									"path": [
+										"api",
+										"scoreSheet",
+										"getMasterDetails",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 24 Nov 2024 22:32:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.20"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "OPTIONS, GET"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1934"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"teams\": {\n        \"1\": {\n            \"1\": {\n                \"1\": [\n                    31,\n                    0\n                ],\n                \"2\": [\n                    15,\n                    0\n                ],\n                \"3\": [\n                    3,\n                    0\n                ],\n                \"4\": [\n                    6,\n                    0\n                ],\n                \"5\": [\n                    3,\n                    0\n                ],\n                \"6\": [\n                    6,\n                    0\n                ],\n                \"7\": [\n                    9,\n                    0\n                ],\n                \"8\": [\n                    7,\n                    0\n                ],\n                \"9\": [\n                    \"Sample Notes\",\n                    \"\"\n                ]\n            },\n            \"2\": {\n                \"1\": [\n                    0,\n                    0\n                ],\n                \"2\": [\n                    0,\n                    0\n                ],\n                \"3\": [\n                    0,\n                    0\n                ],\n                \"4\": [\n                    0,\n                    0\n                ],\n                \"5\": [\n                    0,\n                    0\n                ],\n                \"6\": [\n                    0,\n                    0\n                ],\n                \"7\": [\n                    0,\n                    0\n                ],\n                \"8\": [\n                    0,\n                    0\n                ],\n                \"9\": [\n                    \"\",\n                    \"\"\n                ]\n            },\n            \"3\": {\n                \"1\": [\n                    0,\n                    0\n                ],\n                \"2\": [\n                    0,\n                    0\n                ],\n                \"3\": [\n                    0,\n                    0\n                ],\n                \"4\": [\n                    0,\n                    0\n                ],\n                \"5\": [\n                    0,\n                    0\n                ],\n                \"6\": [\n                    0,\n                    0\n                ],\n                \"7\": [\n                    0,\n                    0\n                ],\n                \"8\": [\n                    0,\n                    0\n                ],\n                \"9\": [\n                    \"\",\n                    \"\"\n                ]\n            },\n            \"4\": {\n                \"1\": [\n                    0,\n                    0\n                ],\n                \"2\": [\n                    0,\n                    0\n                ],\n                \"3\": [\n                    0,\n                    0\n                ],\n                \"4\": [\n                    0,\n                    0\n                ],\n                \"5\": [\n                    0,\n                    0\n                ],\n                \"6\": [\n                    0,\n                    0\n                ],\n                \"7\": [\n                    0,\n                    0\n                ],\n                \"8\": [\n                    0,\n                    0\n                ],\n                \"10\": [\n                    0,\n                    0\n                ],\n                \"11\": [\n                    0,\n                    0\n                ],\n                \"12\": [\n                    0,\n                    0\n                ],\n                \"13\": [\n                    0,\n                    0\n                ],\n                \"14\": [\n                    0,\n                    0\n                ],\n                \"15\": [\n                    0,\n                    0\n                ],\n                \"16\": [\n                    0,\n                    0\n                ],\n                \"17\": [\n                    0,\n                    0\n                ],\n                \"18\": [\n                    0,\n                    0\n                ],\n                \"19\": [\n                    0,\n                    0\n                ],\n                \"20\": [\n                    0,\n                    0\n                ],\n                \"21\": [\n                    0,\n                    0\n                ],\n                \"22\": [\n                    0,\n                    0\n                ],\n                \"23\": [\n                    0,\n                    0\n                ],\n                \"24\": [\n                    0,\n                    0\n                ]\n            },\n            \"team_id\": 1\n        },\n        \"2\": {\n            \"1\": {\n                \"1\": [\n                    31\n                ],\n                \"2\": [\n                    15\n                ],\n                \"3\": [\n                    3\n                ],\n                \"4\": [\n                    6\n                ],\n                \"5\": [\n                    3\n                ],\n                \"6\": [\n                    6\n                ],\n                \"7\": [\n                    9\n                ],\n                \"8\": [\n                    7\n                ],\n                \"9\": [\n                    \"Sample Notes For Team 2\"\n                ]\n            },\n            \"2\": {\n                \"1\": [\n                    0\n                ],\n                \"2\": [\n                    0\n                ],\n                \"3\": [\n                    0\n                ],\n                \"4\": [\n                    0\n                ],\n                \"5\": [\n                    0\n                ],\n                \"6\": [\n                    0\n                ],\n                \"7\": [\n                    0\n                ],\n                \"8\": [\n                    0\n                ],\n                \"9\": [\n                    \"\"\n                ]\n            },\n            \"3\": {\n                \"1\": [\n                    0\n                ],\n                \"2\": [\n                    0\n                ],\n                \"3\": [\n                    0\n                ],\n                \"4\": [\n                    0\n                ],\n                \"5\": [\n                    0\n                ],\n                \"6\": [\n                    0\n                ],\n                \"7\": [\n                    0\n                ],\n                \"8\": [\n                    0\n                ],\n                \"9\": [\n                    \"\"\n                ]\n            },\n            \"4\": {\n                \"1\": [\n                    0\n                ],\n                \"2\": [\n                    0\n                ],\n                \"3\": [\n                    0\n                ],\n                \"4\": [\n                    0\n                ],\n                \"5\": [\n                    0\n                ],\n                \"6\": [\n                    0\n                ],\n                \"7\": [\n                    0\n                ],\n                \"8\": [\n                    0\n                ],\n                \"10\": [\n                    0\n                ],\n                \"11\": [\n                    0\n                ],\n                \"12\": [\n                    0\n                ],\n                \"13\": [\n                    0\n                ],\n                \"14\": [\n                    0\n                ],\n                \"15\": [\n                    0\n                ],\n                \"16\": [\n                    0\n                ],\n                \"17\": [\n                    0\n                ],\n                \"18\": [\n                    0\n                ],\n                \"19\": [\n                    0\n                ],\n                \"20\": [\n                    0\n                ],\n                \"21\": [\n                    0\n                ],\n                \"22\": [\n                    0\n                ],\n                \"23\": [\n                    0\n                ],\n                \"24\": [\n                    0\n                ]\n            },\n            \"team_id\": 2\n        },\n        \"3\": {\n            \"1\": {\n                \"1\": [\n                    31\n                ],\n                \"2\": [\n                    15\n                ],\n                \"3\": [\n                    3\n                ],\n                \"4\": [\n                    6\n                ],\n                \"5\": [\n                    3\n                ],\n                \"6\": [\n                    6\n                ],\n                \"7\": [\n                    9\n                ],\n                \"8\": [\n                    7\n                ],\n                \"9\": [\n                    \"Sample Notes For Team 3\"\n                ]\n            },\n            \"2\": {\n                \"1\": [\n                    0\n                ],\n                \"2\": [\n                    0\n                ],\n                \"3\": [\n                    0\n                ],\n                \"4\": [\n                    0\n                ],\n                \"5\": [\n                    0\n                ],\n                \"6\": [\n                    0\n                ],\n                \"7\": [\n                    0\n                ],\n                \"8\": [\n                    0\n                ],\n                \"9\": [\n                    \"\"\n                ]\n            },\n            \"3\": {\n                \"1\": [\n                    0\n                ],\n                \"2\": [\n                    0\n                ],\n                \"3\": [\n                    0\n                ],\n                \"4\": [\n                    0\n                ],\n                \"5\": [\n                    0\n                ],\n                \"6\": [\n                    0\n                ],\n                \"7\": [\n                    0\n                ],\n                \"8\": [\n                    0\n                ],\n                \"9\": [\n                    \"\"\n                ]\n            },\n            \"4\": {\n                \"1\": [\n                    0\n                ],\n                \"2\": [\n                    0\n                ],\n                \"3\": [\n                    0\n                ],\n                \"4\": [\n                    0\n                ],\n                \"5\": [\n                    0\n                ],\n                \"6\": [\n                    0\n                ],\n                \"7\": [\n                    0\n                ],\n                \"8\": [\n                    0\n                ],\n                \"10\": [\n                    0\n                ],\n                \"11\": [\n                    0\n                ],\n                \"12\": [\n                    0\n                ],\n                \"13\": [\n                    0\n                ],\n                \"14\": [\n                    0\n                ],\n                \"15\": [\n                    0\n                ],\n                \"16\": [\n                    0\n                ],\n                \"17\": [\n                    0\n                ],\n                \"18\": [\n                    0\n                ],\n                \"19\": [\n                    0\n                ],\n                \"20\": [\n                    0\n                ],\n                \"21\": [\n                    0\n                ],\n                \"22\": [\n                    0\n                ],\n                \"23\": [\n                    0\n                ],\n                \"24\": [\n                    0\n                ]\n            },\n            \"team_id\": 3\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Scoresheet Details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 7d80fa6d59e72bdac273300786a9c74a0f4e0cff",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"teamid\":1}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/api/scoreSheet/getDetails/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"api",
+								"scoreSheet",
+								"getDetails",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Scores",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Token 86bedb72160f13e1cc0ac0a622071ec5fb301a8f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":14,\"field1\":31,\"field2\":15,\"field3\":3,\"field4\":6,\"field5\":3,\"field6\":6,\"field7\":9,\"field8\":7,\"field9\":\"Sample Notes For Team 3\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7004/api/scoreSheet/edit/updateScores/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7004",
+							"path": [
+								"api",
+								"scoreSheet",
+								"edit",
+								"updateScores",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tabulate Scores",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": " Token 86bedb72160f13e1cc0ac0a622071ec5fb301a8f",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"contestid\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7004/api/tabulation/tabulateScores/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7004",
+					"path": [
+						"api",
+						"tabulation",
+						"tabulateScores",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "admin_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "user_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "judge_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "organizer_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "coach_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "team_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "cluster_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "contest_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "scores_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "penalties_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "map_id",
+			"value": "1",
+			"type": "default"
+		}
+	]
+}
