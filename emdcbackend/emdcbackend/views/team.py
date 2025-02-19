@@ -345,3 +345,15 @@ def create_team_after_judge(request):
 def is_team_disqualified(request):
     team = get_object_or_404(Teams, id=request.data["teamid"])
     return Response({"is disqualified": team.organizer_disqualified}, status=status.HTTP_200_OK)
+
+@api_view(["GET"])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def get_all_teams(request):
+    try:
+        teams = Teams.objects.all()
+        serializer = TeamSerializer(teams, many=True)
+        return Response({"teams": serializer.data}, status=status.HTTP_200_OK)
+
+    except Exception as e:
+        return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

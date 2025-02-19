@@ -177,5 +177,8 @@ class MapScoresheetToTeamJudge(models.Model):
     scoresheetid = models.IntegerField()
     sheetType = models.IntegerField(choices=ScoresheetEnum.choices)
 
+class SpecialAward(models.Model):
+    teamid = models.IntegerField()
+    award_name = models.CharField(max_length=255)
 
     
