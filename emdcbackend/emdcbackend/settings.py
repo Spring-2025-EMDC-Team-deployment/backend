@@ -31,7 +31,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:7001",
 "http://192.168.1.101:7001",
 "http://emdc-web:7001",
-"https://orca-app-nrupj.ondigitalocean.app"
+"https://orca-app-nrupj.ondigitalocean.app",
+"https://emdc-backend-mahe5.ondigitalocean.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
