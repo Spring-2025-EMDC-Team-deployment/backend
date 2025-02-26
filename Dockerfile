@@ -1,7 +1,10 @@
+# Use an official Python runtime as a parent image
 FROM python:3.8
 
+# Set the working directory in the container
 WORKDIR /backend
 
+# Install dependencies
 RUN pip install --upgrade pip
 RUN pip install django
 RUN pip install mysqlclient
@@ -10,12 +13,11 @@ RUN pip install python-dotenv
 RUN pip install django-cors-headers
 RUN pip install djangorestframework
 
-COPY emdcbackend/ /backend/
+# Copy the backend code into the container at /backend
+COPY /emdcbackend/ /backend/
 
-# Ensure the SQLite database is stored in /storage, which is persistent on App Platform
-RUN mkdir -p /storage
-ENV DATABASE_PATH=/storage/db.sqlite3
-
+# Expose port 7012 to allow external access
 EXPOSE 7004
 
 CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:7004"]
+
