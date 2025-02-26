@@ -3,8 +3,12 @@ FROM python:3.8
 WORKDIR /backend
 
 RUN pip install --upgrade pip
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install django
+RUN pip install mysqlclient
+RUN pip install django-autoreload
+RUN pip install python-dotenv
+RUN pip install django-cors-headers
+RUN pip install djangorestframework
 
 COPY emdcbackend/ /backend/
 
