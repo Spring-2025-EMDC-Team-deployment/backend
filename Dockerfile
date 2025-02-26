@@ -20,4 +20,4 @@ COPY /emdcbackend/ /backend/
 EXPOSE 7004
 
 # Run the Django application with auto-reload
-CMD ["python", "manage.py", "runserver", "0.0.0.0:7004"]
+CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:7004"]
